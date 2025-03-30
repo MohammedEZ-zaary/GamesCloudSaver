@@ -12,8 +12,8 @@ require('dotenv').config({ path: '.env' });
 const USERNAME = os.userInfo().username ;
 const localUserProfileName = PATH.join("C:" , "Users" , USERNAME );
 // Node doesn't support top-level await when using CJS
-const email = process.env.EMAIL;
-const password = process.env.PASSWORD;
+const email =  process.env.EMAIL;
+const password =  process.env.PASSWORD;
 
 async function initializeStorage(email, password) {
     const storage = new Storage({ 
@@ -235,9 +235,5 @@ async function checkIfGameFileExisteInComputer(storage){
   } catch (error) {
     console.log("\u274C Check your email and password and try again");
     console.error("Error details:", error);
-  } finally {
-    if (storage) {
-      await storage.close();
-    }
-  }
+  } 
 })();
